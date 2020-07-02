@@ -11,8 +11,6 @@ import TextField from '@material-ui/core/TextField';
 import SimpleModal from "./Model";
 
 
-
-
 class Posts extends Component {
     constructor(props) {
         super(props);
@@ -28,17 +26,21 @@ class Posts extends Component {
         }
     }
 
-
     componentDidMount() {
         console.log("componentDidMount")
-
-        axios
-            .get("https://jsonplaceholder.typicode.com/posts")
-            .then(res => {
-                console.log(res)
-                this.setState({ postdata: res.data })
-            })
+        this.getdata()
+     
     }
+    getdata = () =>{
+        axios
+        .get("https://jsonplaceholder.typicode.com/posts")
+        .then(res => {
+            console.log(res)
+            this.setState({ postdata: res.data })
+        })
+
+    }
+
     handleSearch = (e) => {
         console.log("search")
         this.setState({ searchString: e.target.value })
@@ -97,14 +99,12 @@ class Posts extends Component {
         let filterData = this.filterHandle();
         filterData = filterData && filterData.slice((this.state.page - 1) * this.state.per_page,
             this.state.page * this.state.per_page)
-        // let commentData = this.getComment("1");
-        // console.log(commentData)
         return (
             <div>
                 <Fragment>
                     <div className="search">
                         <input className="search" placeholder="Search by title" onChange={(e) => { this.handleSearch(e) }} />
-                        <SimpleModal />
+                        <SimpleModal getdata={this.getdata} />
 
                     </div>
                     {
