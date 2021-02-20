@@ -21,8 +21,7 @@
 .comment{
   margin-top: 2%;
   color: blue;
-
-
+  cursor: pointer
 }
 
 .commentbody{

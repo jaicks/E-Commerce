@@ -41,7 +41,6 @@ export default class Model extends Component {
           "description":this.state.savedesc
         }})
     .then( res=>{
-      
       this.props.getdata()
     
     })

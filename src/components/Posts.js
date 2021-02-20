@@ -91,6 +91,7 @@ class Posts extends Component {
 
     handlePagination = (e, value) => {
         this.setState({ page: value })
+        
     }
 
     render() {
@@ -136,7 +137,7 @@ class Posts extends Component {
                                             )
                                         }
                                     </div>
-                                )
+                                )   
                             })
 
                         )
